@@ -1,4 +1,4 @@
-document.write('<p>Estadisticas centro medico ñuñoa</p>');
+document.write('<h1>Estadisticas centro medico ñuñoa</h1>');
 
 let radiologia = [
     { hora: '11:00', especialista: 'IGNACIO SCHULZ', paciente: 'FRANCISCA ROJAS', rut: '9878782-1', prevision: 'FONASA' },
@@ -31,11 +31,11 @@ let dental = [
 //1. Crear un objeto con los datos a insertar al arreglo traumatología
 
 traumatologia.push(
-    { hora: '09:00', especialista: 'René Poblete', paciente: 'Ana Gellona', rut: '13123329-7', prevision: 'ISAPRE' },
-    { hora: '09:30', especialista: 'María Solar', paciente: 'Ramiro Andrade', rut: '12221451-k', prevision: 'FONASA' },
-    { hora: '10:00', especialista: 'Raúl Loyola', paciente: 'Carmen Isla', rut: '10112348-3', prevision: 'ISAPRE' },
-    { hora: '10:30', especialista: 'Antonio Larenas', paciente: 'Pablo Loayza', rut: '13453234-1', prevision: 'ISAPRE' },
-    { hora: '12:00', especialista: 'Matías Aravena', paciente: 'Susana Poblete', rut: '14345656-6', prevision: 'FONASA' }
+    { hora: '09:00', especialista: 'RENÉ POBLETE', paciente: 'ANA GELLONA', rut: '13123329-7', prevision: 'ISAPRE' },
+    { hora: '09:30', especialista: 'MARÍA SOLAR', paciente: 'RAMIRO ANDRADE', rut: '12221451-k', prevision: 'FONASA' },
+    { hora: '10:00', especialista: 'RAÚL LOYOLA', paciente: 'CARMEN ISLA', rut: '10112348-3', prevision: 'ISAPRE' },
+    { hora: '10:30', especialista: 'ANTONIO LARENAS', paciente: 'PABLO LOAYZA', rut: '13453234-1', prevision: 'ISAPRE' },
+    { hora: '12:00', especialista: 'MATÍAS ARAVENA', paciente: 'SUSANA POBLETE', rut: '14345656-6', prevision: 'FONASA' }
 );
 
 //2. Eliminar el primer y último elemento del arreglo de Radiología
@@ -45,10 +45,50 @@ radiologia.pop()
 
 //3. Imprimir en la página HTML, mediante document.write y/o las funciones que estime conveniente, la lista de consultas médicas de Dental. Sin embargo, debe hacerlo separando por un guión cada dato desplegado y cada fila de información debe estar separada por un párrafo
 
+document.write(`<h2 class="container">Consultas Médicas dentales</h2>`)
+dental.forEach((elemento) => {
+    document.write(`<p>${elemento.hora} - ${elemento.especialista} - ${elemento.paciente} - ${elemento.rut} - ${elemento.prevision} </p>`)
+});
+
+// 4. Imprimir un listado total de todos los pacientes que se atendieron en el centro médico. Para esto, deberá unir todos los nombres de pacientes e imprimir uno por cada párrafo 
+
+/* document.write(`<h2 class="container">Listado total de pacientes por especialidad</h2>`)
+
+ document.write(`<h3 class="container">Pacientes de Radiología</h3>`)
+radiologia.forEach((elemento) => {
+    console.log(elemento)
+    document.write(`<p>${elemento.paciente}</p>`)
+});
+
+document.write(`<h3 class="container">Pacientes de Traumatología</h3>`)
+traumatologia.forEach((elemento) => {
+    console.log(elemento)
+    document.write(`<p>${elemento.paciente}</p>`)
+});
+
+document.write(`<h3 class="container">Pacientes de Dental</h3>`)
+dental.forEach((elemento) => {
+    console.log(elemento)
+    document.write(`<p>${elemento.paciente}</p>`)
+}); */
+
+
+// RECORRER COMO FUNCIÓN Y UNIÓN
+
+document.write(`<h2 class="container">Listado total de pacientes</h2>`)
+function total() {
+    const union = radiologia.concat(traumatologia).concat(dental);
+
+    for (i = 0; i < union.length; i++) {
+        document.write(`<p>${union[i].paciente}</p>`)
+    }
+}
+
+total()
 
 //Agregar código para el desafio 2 aquí
 
-document.write(`<p>Cantidad de atenciones para Radiología: ${radiologia.length}</p>`);
+document.write(`<br><p>Cantidad de atenciones para Radiología: ${radiologia.length}</p>`);
 document.write(`<p>Cantidad de atenciones para Traumatología: ${traumatologia.length}</p>`);
 document.write(`<p>Cantidad de atenciones para Dental: ${dental.length}</p>`);
 
