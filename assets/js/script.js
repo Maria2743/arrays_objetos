@@ -75,16 +75,28 @@ dental.forEach((elemento) => {
 
 // RECORRER COMO FUNCIÓN Y UNIÓN
 
-document.write(`<h2 class="container">Listado total de pacientes</h2>`)
-function total() {
-    const union = radiologia.concat(traumatologia).concat(dental);
+/* document.write(`<h2 class="container">Listado total de pacientes</h2>`)
+function totalPacientes() {
+    const union = radiologia.concat(traumatologia, dental);
 
     for (i = 0; i < union.length; i++) {
         document.write(`<p>${union[i].paciente}</p>`)
     }
-}
+} 
 
-total()
+totalPacientes()
+
+*/
+
+// Usando el método forEach
+
+document.write(`<h2 class="container">Listado total de pacientes</h2>`)
+
+const union = radiologia.concat(traumatologia, dental);
+
+union.forEach((elemento) => {
+    document.write(`<p>${elemento.paciente}</p>`)
+})
 
 //Agregar código para el desafio 2 aquí
 
