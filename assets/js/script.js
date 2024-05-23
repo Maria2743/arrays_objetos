@@ -92,10 +92,35 @@ totalPacientes()
 
 document.write(`<h2 class="container">Listado total de pacientes</h2>`)
 
-const union = radiologia.concat(traumatologia, dental);
+const totalPacientes = radiologia.concat(traumatologia, dental);
 
-union.forEach((elemento) => {
+totalPacientes.forEach((elemento) => {
     document.write(`<p>${elemento.paciente}</p>`)
+})
+
+
+//5. Filtrar aquellos pacientes que indican ser de ISAPRE en la lista de consultas médicas de Dental
+
+document.write(`<h2 class="container">Pacientes ISAPRE en Dental</h2>`)
+
+let pacientesIsapre = dental.filter((elemento) => {
+    return elemento.prevision === "ISAPRE"
+})
+
+pacientesIsapre.forEach((elemento) => {
+    document.write(`<p>${elemento.paciente} - ${elemento.prevision}</p>`)
+})
+
+//6. Filtrar aquellos pacientes que indican ser de FONASA en la lista de consultas médicas de Traumatología
+
+document.write(`<h2 class="container">Pacientes FONASA en Traumatología</h2>`)
+
+let pacientesFonasa = traumatologia.filter((elemento) => {
+    return elemento.prevision === "FONASA"
+})
+
+pacientesFonasa.forEach((elemento) => {
+    document.write(`<p>${elemento.paciente} - ${elemento.prevision}</p>`)
 })
 
 //Agregar código para el desafio 2 aquí
